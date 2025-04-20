@@ -1,6 +1,12 @@
 @import "tailwindcss";
+@plugin "daisyui";
+
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 .plus-jakarta-sans-font{
   font-family: "Plus Jakarta Sans", sans-serif;
+}
+.active{
+  border-bottom: 2px solid;
+  padding: 5px 0 5px 0;
 }
