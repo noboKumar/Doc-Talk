@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import DoctorCard from "./DoctorCard";
 import Button from "./Ui/Button";
+import CountUpCards from "./Ui/CountUpCards";
 
 const DoctorsSection = ({ data }) => {
   const [doctorData, setDoctorData] = useState([]);
@@ -36,14 +37,17 @@ const DoctorsSection = ({ data }) => {
           name={showAll ? "Show Less" : "Show All"}
         ></Button>
         <div className="space-y-5 py-5">
-          <h1 className="text-4xl font-bold">
+          <h1 className="text-2xl md:text-4xl font-bold">
             We Provide Best Medical Services
           </h1>
-          <p className="text-xl">
+          <p className="md:text-xl">
             Our platform connects you with verified, experienced doctors across
             various specialties — all at your convenience.{" "}
           </p>
         </div>
+      </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <CountUpCards />
       </div>
     </div>
   );

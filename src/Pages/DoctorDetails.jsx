@@ -10,7 +10,6 @@ const DoctorDetails = () => {
 
   const {
     doctor_image,
-    available,
     education,
     registration_number,
     name,
@@ -23,8 +22,8 @@ const DoctorDetails = () => {
   return (
     <div className="bg-[#EFEFEF]">
       <div className="py-5 w-11/12 mx-auto space-y-8">
-        <div className="text-center space-y-4 bg-white py-16 px-28 rounded-2xl">
-          <h1 className="text-2xl md:text-3xl font-bold">
+        <div className="text-center space-y-4 bg-white px-5 py-5 md:py-16 md:px-28 rounded-2xl">
+          <h1 className="text-3xl font-bold">
             Doctor’s Profile Details
           </h1>
           <p className="text-xl">
@@ -67,9 +66,9 @@ const DoctorDetails = () => {
               <span>{registration_number}</span>
             </p>
             <hr className="border-dashed border border-[#0F0F0F99] my-4" />
-            <p className="text-xl font-semibold flex items-center gap-4">
+            <p className="text-xl font-semibold md:flex items-center gap-4">
               Availability
-              <span className="flex gap-4">
+              <span className="md:flex space-y-2 md:space-y-0 gap-4">
                 {available_weekdays.map((week) => (
                   <p className="border-2 border-[#ffa200a2] bg-[#FFA0001A] text-[#ffa200] px-4 py-1 rounded-3xl">{week}</p>
                 ))}
