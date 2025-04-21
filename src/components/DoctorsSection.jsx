@@ -30,10 +30,21 @@ const DoctorsSection = ({ data }) => {
           <DoctorCard key={doctor.id} doctor={doctor}></DoctorCard>
         ))}
       </div>
-      <Button
-        onClick={() => setShowAll(!showAll)}
-        name={showAll ? "Show Less" : "Show All"}
-      ></Button>
+      <div className="text-center">
+        <Button
+          onClick={() => setShowAll(!showAll)}
+          name={showAll ? "Show Less" : "Show All"}
+        ></Button>
+        <div className="space-y-5 py-5">
+          <h1 className="text-4xl font-bold">
+            We Provide Best Medical Services
+          </h1>
+          <p className="text-xl">
+            Our platform connects you with verified, experienced doctors across
+            various specialties — all at your convenience.{" "}
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

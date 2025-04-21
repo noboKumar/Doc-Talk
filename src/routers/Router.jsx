@@ -26,6 +26,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/home/:id",
+        loader: () => fetch("../doctorData.json"),
+        hydrateFallbackElement: <Loading></Loading>,
         Component: DoctorDetails,
       },
     ],

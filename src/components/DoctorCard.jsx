@@ -51,7 +51,7 @@ const DoctorCard = ({ doctor }) => {
         {registration_number}
       </p>
       <Link to={`/home/${id}`}>
-        <button className="border px-5 py-2 border-[#176AE5] text-[#176AE5] rounded-4xl w-full my-3 cursor-pointer text-xl font-bold">
+        <button className="border px-5 py-2 border-[#176AE5] text-[#176AE5] rounded-4xl w-full my-3 cursor-pointer text-xl font-bold group hover:bg-[#176AE5] hover:text-white">
           View Details
         </button>
       </Link>
