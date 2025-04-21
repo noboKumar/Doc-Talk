@@ -15,7 +15,7 @@ const Footer = () => {
       </aside>
       <div className="border w-1/2 border-gray-400"></div>
       <nav>
-        <div className="grid grid-flow-col gap-4 text-3xl">
+        <div className="grid grid-flow-col gap-4 text-2xl md:text-3xl">
           <a>
             <FaFacebook />
           </a>
