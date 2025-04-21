@@ -46,9 +46,7 @@ const DoctorsSection = ({ data }) => {
           </p>
         </div>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <CountUpCards />
-      </div>
     </div>
   );
 };

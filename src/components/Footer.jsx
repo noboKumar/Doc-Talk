@@ -16,16 +16,16 @@ const Footer = () => {
       <div className="border w-1/2 border-gray-400"></div>
       <nav>
         <div className="grid grid-flow-col gap-4 text-2xl md:text-3xl">
-          <a>
+          <a className="cursor-pointer" target="_blank" href="https://www.facebook.com/crazy.nobo/">
             <FaFacebook />
           </a>
-          <a>
+          <a className="cursor-pointer" target="_blank" href="https://x.com/crazyXnobo">
             <BsTwitterX />
           </a>
-          <a>
+          <a className="cursor-pointer" target="_blank" href="https://www.linkedin.com/in/nobo-kumar/">
             <FaLinkedin />
           </a>
-          <a>
+          <a className="cursor-pointer" target="_blank" href="https://www.youtube.com/channel/UCroR9oPyG6BbNwHkgq574kQ">
             <FaYoutube />
           </a>
         </div>

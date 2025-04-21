@@ -1,12 +1,12 @@
 import React from "react";
 import { PiTrademarkRegisteredBold } from "react-icons/pi";
-import { useLoaderData, useParams } from "react-router";
+import { Link, useLoaderData, useParams } from "react-router";
+import { bookAppointment } from "../utilities/localStorage";
 
 const DoctorDetails = () => {
   const { id } = useParams();
   const data = useLoaderData();
   const doctorData = data.find((doctor) => doctor.id === parseInt(id));
-  console.log(doctorData);
 
   const {
     doctor_image,
@@ -17,15 +17,18 @@ const DoctorDetails = () => {
     current_working_hospital,
     consultant_fees,
     available_weekdays,
+    available,
   } = doctorData;
+
+  const handleBookAppointment = () => {
+    bookAppointment(doctorData);
+  };
 
   return (
     <div className="bg-[#EFEFEF]">
       <div className="py-5 w-11/12 mx-auto space-y-8">
         <div className="text-center space-y-4 bg-white px-5 py-5 md:py-16 md:px-28 rounded-2xl">
-          <h1 className="text-3xl font-bold">
-            Doctor’s Profile Details
-          </h1>
+          <h1 className="text-3xl font-bold">Doctor’s Profile Details</h1>
           <p className="text-xl">
             Meet Our Doctors — "Care Beyond Prescriptions" <br />
             Our team of experienced and compassionate doctors is dedicated to
@@ -58,29 +61,77 @@ const DoctorDetails = () => {
               </span>
             </p>
             <hr className="border-dashed border border-[#0F0F0F99] my-4 w-full" />
-            <p className="md:text-xl flex gap-2 font-medium  text-[#0F0F0F99]">
+            <div className="md:text-xl flex gap-2 font-medium  text-[#0F0F0F99]">
               <span className="flex items-center">
                 <PiTrademarkRegisteredBold size={20} /> Reg No:
                 <hr />
               </span>
               <span>{registration_number}</span>
-            </p>
+            </div>
             <hr className="border-dashed border border-[#0F0F0F99] my-4" />
-            <p className="text-xl font-semibold md:flex items-center gap-4">
+            <div className="text-xl font-semibold md:flex items-center gap-4">
               Availability
               <span className="md:flex space-y-2 md:space-y-0 gap-4">
-                {available_weekdays.map((week) => (
-                  <p className="border-2 border-[#ffa200a2] bg-[#FFA0001A] text-[#ffa200] px-4 py-1 rounded-3xl">{week}</p>
+                {available_weekdays.map((week, index) => (
+                  <p
+                    key={index}
+                    className="border-2 border-[#ffa200a2] bg-[#FFA0001A] text-[#ffa200] px-4 py-1 rounded-3xl"
+                  >
+                    {week}
+                  </p>
                 ))}
               </span>
-            </p>
+            </div>
             <p className="text-xl font-semibold">
               Consultation Fee:{" "}
-              <span className="text-[#176AE5] font-bold">Taka: {consultant_fees}</span>{" "}
+              <span className="text-[#176AE5] font-bold">
+                Taka: {consultant_fees}
+              </span>{" "}
               (inc. VAT){" "}
               <span className="text-[#176AE5]">Per consultation</span>
             </p>
           </div>
+        </div>
+        <div className="bg-white space-y-5 p-8 rounded-2xl">
+          <h1 className="text-3xl font-bold text-center">
+            Book an Appointment
+          </h1>
+          <hr className="border border-dashed" />
+          <div className="flex items-center justify-between">
+            <p className="text-xl font-semibold">Availability</p>
+            <p
+              className={`border rounded-4xl px-3 py-2 md:px-3.5 md:py-1.5 text-xl ${
+                available
+                  ? "bg-[#09982f31] border-[#09982F] text-[#09982F]"
+                  : "bg-[#eb51593b] border-[#ff1b1b] text-[#ff1b1b]"
+              }`}
+            >
+              {available
+                ? "Doctor Available Today"
+                : "Doctor Not Available Today"}
+            </p>
+          </div>
+          <hr />
+          <p
+            className={`text-xl px-5 py-2 rounded-2xl ${
+              available
+                ? "bg-[#FFA0001A] text-[#FFA000]"
+                : "bg-[#eb51593b] text-[#ff1b1b]"
+            }`}
+          >
+            {available
+              ? "Due to high patient volume, we are currently accepting appointments for today only. We appreciate your understanding and cooperation."
+              : "Doctor is Not Available Today, Check Again Later."}
+          </p>
+          <Link to="/my-bookings">
+            <button
+              onClick={handleBookAppointment}
+              disabled={!available}
+              className="btn bg-[#176AE5] text-white rounded-4xl py-6 px-7 w-full text-xl"
+            >
+              Book Appointment Now
+            </button>
+          </Link>
         </div>
       </div>
     </div>
