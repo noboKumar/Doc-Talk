@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DoctorCard from "./DoctorCard";
+import Button from "./Ui/Button";
 
 const DoctorsSection = ({ data }) => {
+  const [doctorData, setDoctorData] = useState([]);
+  const [showAll, setShowAll] = useState(false);
+
+  useEffect(() => {
+    if (showAll) {
+      setDoctorData(data);
+    } else {
+      setDoctorData(data.slice(0, 6));
+    }
+  }, [data, showAll]);
+
   return (
     <div className="py-20 space-y-10 w-11/12 mx-auto">
       <div className="text-center space-y-5">
@@ -14,10 +26,14 @@ const DoctorsSection = ({ data }) => {
         </p>
       </div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
-        {data.map((doctor) => (
+        {doctorData.map((doctor) => (
           <DoctorCard key={doctor.id} doctor={doctor}></DoctorCard>
         ))}
       </div>
+      <Button
+        onClick={() => setShowAll(!showAll)}
+        name={showAll ? "Show Less" : "Show All"}
+      ></Button>
     </div>
   );
 };
