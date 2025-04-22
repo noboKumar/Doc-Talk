@@ -14,3 +14,11 @@ export const bookAppointment = (doctorData) => {
   appointments.push(doctorData);
   localStorage.setItem("appointments", JSON.stringify(appointments));
 };
+
+export const removeAppointment = (id) => {
+  const appointments = getAppointments();
+  const remainingAppointments = appointments.filter(
+    (appointment) => appointment.id !== id
+  );
+  localStorage.setItem("appointments", JSON.stringify(remainingAppointments));
+};

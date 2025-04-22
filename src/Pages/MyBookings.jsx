@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAppointments } from "../utilities/localStorage";
+import { getAppointments, removeAppointment } from "../utilities/localStorage";
 import BookingCard from "../components/BookingCard";
 
 const MyBookings = () => {
@@ -10,6 +10,10 @@ const MyBookings = () => {
     setDisplayBookings(bookingsList);
   }, []);
 
+  const handleCancel = (id) => {
+    removeAppointment(id);
+    setDisplayBookings(getAppointments());
+  };
 
   return (
     <div className="bg-[#EFEFEF] py-10">
@@ -24,9 +28,13 @@ const MyBookings = () => {
           </p>
         </div>
         <div className="space-y-5">
-            {
-                displayBookings.map(booking => <BookingCard key={booking.id} booking={booking}></BookingCard>)
-            }
+          {displayBookings.map((booking) => (
+            <BookingCard
+              key={booking.id}
+              booking={booking}
+              handleCancel={handleCancel}
+            ></BookingCard>
+          ))}
         </div>
       </div>
     </div>
