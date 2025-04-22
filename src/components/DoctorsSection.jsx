@@ -36,17 +36,7 @@ const DoctorsSection = ({ data }) => {
           onClick={() => setShowAll(!showAll)}
           name={showAll ? "Show Less" : "Show All"}
         ></Button>
-        <div className="space-y-5 py-5">
-          <h1 className="text-2xl md:text-4xl font-bold">
-            We Provide Best Medical Services
-          </h1>
-          <p className="md:text-xl">
-            Our platform connects you with verified, experienced doctors across
-            various specialties — all at your convenience.{" "}
-          </p>
-        </div>
       </div>
-      <CountUpCards />
     </div>
   );
 };
