@@ -4,7 +4,8 @@ import { Link } from "react-router";
 
 const EmptyBooking = () => {
   return (
-    <div className="text-center space-y-2 my-10 w-11/12 mx-auto">
+<div className="bg-[#EFEFEF]">
+<div className="text-center min-h-[calc(100vh-470px)] space-y-2 py-10 w-11/12 mx-auto">
       <h1 className="text-2xl md:text-4xl font-bold">
         You Have Not Booked Any Appointment Yet
       </h1>
@@ -16,6 +17,7 @@ const EmptyBooking = () => {
         <Button name={"Book An Appointment"}></Button>
       </Link>
     </div>
+</div>
   );
 };
 

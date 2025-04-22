@@ -23,6 +23,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/blogs",
+        loader: () => fetch("../blogPageData.json"),
+        hydrateFallbackElement: <Loading></Loading>,
         Component: Blogs,
       },
       {
