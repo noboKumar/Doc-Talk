@@ -46,7 +46,7 @@ const DoctorsSection = ({ data }) => {
           </p>
         </div>
       </div>
-        <CountUpCards />
+      <CountUpCards />
     </div>
   );
 };

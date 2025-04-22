@@ -29,15 +29,15 @@ export const router = createBrowserRouter([
         Component: Blogs,
       },
       {
-        path: "/home/:id",
+        path: "/home/:regNo",
         loader: () => fetch("../doctorData.json"),
         hydrateFallbackElement: <Loading></Loading>,
         Component: DoctorDetails,
       },
       {
         path: "*",
-        element: <ErrorPage></ErrorPage>
-      }
+        element: <ErrorPage></ErrorPage>,
+      },
     ],
   },
 ]);

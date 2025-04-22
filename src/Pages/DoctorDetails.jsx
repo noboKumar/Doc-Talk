@@ -4,9 +4,11 @@ import { bookAppointment, getAppointments } from "../utilities/localStorage";
 import { Bounce, toast } from "react-toastify";
 
 const DoctorDetails = () => {
-  const { id } = useParams();
+  const { regNo } = useParams();
   const data = useLoaderData();
-  const doctorData = data.find((doctor) => doctor.id === parseInt(id));
+  const doctorData = data.find(
+    (doctor) => doctor.registration_number === regNo
+  );
   const navigate = useNavigate();
 
   const {
