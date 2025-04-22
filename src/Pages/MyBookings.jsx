@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { getAppointments, removeAppointment } from "../utilities/localStorage";
 import BookingCard from "../components/BookingCard";
 import EmptyBooking from "../components/Ui/EmptyBooking";
+import Chart from "../components/Ui/Chart";
 
 const MyBookings = () => {
   const [displayBookings, setDisplayBookings] = useState([]);
+  console.log(displayBookings);
 
   useEffect(() => {
     const bookingsList = getAppointments();
@@ -21,6 +23,7 @@ const MyBookings = () => {
   return (
     <div className="bg-[#EFEFEF] py-10">
       <div className="w-11/12 mx-auto">
+      <Chart displayBookings={displayBookings}></Chart>
         <div className="text-center py-5 space-y-2">
           <h1 className="md:text-3xl text-2xl font-bold">
             My Today Appointments

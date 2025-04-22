@@ -130,7 +130,7 @@ const DoctorDetails = () => {
             Book an Appointment
           </h1>
           <hr className="border border-dashed" />
-          <div className="flex items-center justify-between">
+          <div className="md:flex items-center justify-between">
             <p className="text-xl font-semibold">Availability</p>
             <p
               className={`border rounded-4xl px-3 py-2 md:px-3.5 md:py-1.5 text-xl ${
