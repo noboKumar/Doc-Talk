@@ -1,12 +1,13 @@
-import React from "react";
 import { PiTrademarkRegisteredBold } from "react-icons/pi";
-import { Link, useLoaderData, useParams } from "react-router";
-import { bookAppointment } from "../utilities/localStorage";
+import { useLoaderData, useNavigate, useParams } from "react-router";
+import { bookAppointment, getAppointments } from "../utilities/localStorage";
+import { Bounce, toast } from "react-toastify";
 
 const DoctorDetails = () => {
   const { id } = useParams();
   const data = useLoaderData();
   const doctorData = data.find((doctor) => doctor.id === parseInt(id));
+  const navigate = useNavigate();
 
   const {
     doctor_image,
@@ -18,10 +19,42 @@ const DoctorDetails = () => {
     consultant_fees,
     available_weekdays,
     available,
-  } = doctorData;
+  } = doctorData || {};
 
   const handleBookAppointment = () => {
-    bookAppointment(doctorData);
+    const appointments = getAppointments();
+    const isExist = appointments.find((doctor) => doctor.id === doctorData.id);
+
+    if (!isExist) {
+      bookAppointment(doctorData);
+      navigate("/my-bookings");
+      toast.success(
+        `Appointment Scheduled for ${doctorData.name} Successfully`,
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        }
+      );
+    } else {
+      return toast.error("Appointment Already Scheduled for Today", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    }
   };
 
   return (
@@ -123,15 +156,13 @@ const DoctorDetails = () => {
               ? "Due to high patient volume, we are currently accepting appointments for today only. We appreciate your understanding and cooperation."
               : "Doctor is Not Available Today, Check Again Later."}
           </p>
-          <Link to="/my-bookings">
-            <button
-              onClick={handleBookAppointment}
-              disabled={!available}
-              className="btn bg-[#176AE5] text-white rounded-4xl py-6 px-7 w-full text-xl"
-            >
-              Book Appointment Now
-            </button>
-          </Link>
+          <button
+            onClick={handleBookAppointment}
+            disabled={!available}
+            className="btn bg-[#176AE5] text-white rounded-4xl py-6 px-7 w-full text-xl"
+          >
+            Book Appointment Now
+          </button>
         </div>
       </div>
     </div>

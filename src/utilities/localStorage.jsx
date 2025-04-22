@@ -1,3 +1,5 @@
+import { Bounce, toast } from "react-toastify";
+
 export const getAppointments = () => {
   const appointments = localStorage.getItem("appointments");
 
@@ -7,10 +9,6 @@ export const getAppointments = () => {
 
 export const bookAppointment = (doctorData) => {
   const appointments = getAppointments();
-  const isExist = appointments.find((doctor) => doctor.id === doctorData.id);
-
-  if (isExist) return console.log("already added");
-
   appointments.push(doctorData);
   localStorage.setItem("appointments", JSON.stringify(appointments));
 };
@@ -21,4 +19,16 @@ export const removeAppointment = (id) => {
     (appointment) => appointment.id !== id
   );
   localStorage.setItem("appointments", JSON.stringify(remainingAppointments));
+
+  toast.error("Appointment Canceled", {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    transition: Bounce,
+  });
 };
