@@ -2,6 +2,7 @@ import { PiTrademarkRegisteredBold } from "react-icons/pi";
 import { useLoaderData, useNavigate, useParams } from "react-router";
 import { bookAppointment, getAppointments } from "../utilities/localStorage";
 import { Bounce, toast } from "react-toastify";
+import InvalidDoctorId from "../components/InvalidDoctorId";
 
 const DoctorDetails = () => {
   const { regNo } = useParams();
@@ -58,6 +59,14 @@ const DoctorDetails = () => {
       });
     }
   };
+
+  const allRegNo = data.map((doctor) => doctor.registration_number);
+
+  const isValidRegNo = allRegNo.includes(regNo);
+
+  if (!isValidRegNo) {
+    return <InvalidDoctorId regNo={regNo}></InvalidDoctorId>;
+  }
 
   return (
     <div className="bg-[#EFEFEF]">
