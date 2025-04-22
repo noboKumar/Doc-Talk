@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getAppointments, removeAppointment } from "../utilities/localStorage";
 import BookingCard from "../components/BookingCard";
+import EmptyBooking from "../components/Ui/EmptyBooking";
 
 const MyBookings = () => {
   const [displayBookings, setDisplayBookings] = useState([]);
@@ -14,6 +15,8 @@ const MyBookings = () => {
     removeAppointment(id);
     setDisplayBookings(getAppointments());
   };
+
+  if (displayBookings.length < 1) return <EmptyBooking />;
 
   return (
     <div className="bg-[#EFEFEF] py-10">

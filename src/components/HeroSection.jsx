@@ -24,8 +24,8 @@ const HeroSection = () => {
         <Button name="Search Now"></Button>
       </div>
       <div className="lg:flex justify-center gap-6 space-y-5 lg:space-y-0">
-        <img className="rounded-xl" width={740} src={doctorGroup1} alt="" />
-        <img className="rounded-xl" src={doctorGroup2} alt="" />
+        <img className="rounded-xl mx-auto lg:mx-0" width={740} src={doctorGroup1} alt="" />
+        <img className="rounded-xl mx-auto lg:mx-0" src={doctorGroup2} alt="" />
       </div>
     </div>
   );
