@@ -1,5 +1,4 @@
 import React from "react";
-import { PiSmileySadLight } from "react-icons/pi";
 import { TbMoodSadDizzy } from "react-icons/tb";
 
 const ErrorPage = () => {

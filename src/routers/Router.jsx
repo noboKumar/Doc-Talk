@@ -5,6 +5,7 @@ import MyBookings from "../Pages/MyBookings";
 import Blogs from "../Pages/Blogs";
 import Loading from "../components/Ui/Loading";
 import DoctorDetails from "../Pages/DoctorDetails";
+import ErrorPage from "../components/Ui/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
         hydrateFallbackElement: <Loading></Loading>,
         Component: DoctorDetails,
       },
+      {
+        path: "*",
+        element: <ErrorPage></ErrorPage>
+      }
     ],
   },
 ]);

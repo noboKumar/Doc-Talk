@@ -6,8 +6,7 @@ import Chart from "../components/Ui/Chart";
 
 const MyBookings = () => {
   const [displayBookings, setDisplayBookings] = useState([]);
-  console.log(displayBookings);
-
+  
   useEffect(() => {
     const bookingsList = getAppointments();
     setDisplayBookings(bookingsList);
