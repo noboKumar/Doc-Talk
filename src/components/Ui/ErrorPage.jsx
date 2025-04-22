@@ -1,5 +1,7 @@
 import React from "react";
 import { TbMoodSadDizzy } from "react-icons/tb";
+import Button from "./Button";
+import { Link } from "react-router";
 
 const ErrorPage = () => {
   return (
@@ -11,6 +13,9 @@ const ErrorPage = () => {
         <p className="text-xl">
           The resource requested could not be found on this server!
         </p>
+        <Link to="/">
+          <Button name="Back To Home"></Button>
+        </Link>
       </div>
     </div>
   );
