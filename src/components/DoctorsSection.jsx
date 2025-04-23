@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DoctorCard from "./DoctorCard";
 import Button from "./Ui/Button";
-import CountUpCards from "./Ui/CountUpCards";
 
 const DoctorsSection = ({ data }) => {
   const [doctorData, setDoctorData] = useState([]);

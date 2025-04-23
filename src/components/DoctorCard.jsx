@@ -21,7 +21,7 @@ const DoctorCard = ({ doctor }) => {
           alt="doctor-image"
         />
       </div>
-      <div className="md:flex md:space-y-0 space-y-2 items-center gap-2 text-xl my-5">
+      <div className="lg:flex lg:space-y-0 space-y-2 items-center gap-2 text-xl my-5">
         <p
           className={`border rounded-4xl px-3 py-2 md:px-3.5 md:py-1.5 ${
             available
@@ -45,7 +45,7 @@ const DoctorCard = ({ doctor }) => {
       <hr className="border-dashed border-2 border-[#0F0F0F99] my-4" />
       <p className="md:text-xl flex gap-2 font-semibold text-[#0F0F0F99]/90">
         <span className="flex items-center">
-          <PiTrademarkRegisteredBold size={20} /> Reg No:
+          <PiTrademarkRegisteredBold size={25} /> Reg No:
         </span>
         {registration_number}
       </p>

@@ -11,7 +11,7 @@ const Root = () => {
   const { state } = useNavigation();
 
   return (
-    <div>
+    <div className="plus-jakarta-sans-font">
       <NavBar></NavBar>
       <div className="min-h-[calc(100vh-465px)]">
         {state == "loading" ? <Loading /> : <Outlet />}

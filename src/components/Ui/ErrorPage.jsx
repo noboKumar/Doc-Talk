@@ -5,9 +5,9 @@ import { Link } from "react-router";
 
 const ErrorPage = () => {
   return (
-    <div className="text-center">
-      <TbMoodSadDizzy className="mx-auto" size={400} />
-      <div className="space-y-5">
+    <div className="py-5">
+      <TbMoodSadDizzy className="mx-auto" size={350} />
+      <div className="space-y-5 text-center">
         <h1 className="text-6xl font-bold">404</h1>
         <p className="text-4xl font-bold">Page Not Found</p>
         <p className="text-xl">

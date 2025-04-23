@@ -22,6 +22,7 @@ const DoctorDetails = () => {
     consultant_fees,
     available_weekdays,
     available,
+    designation,
   } = doctorData || {};
 
   const handleBookAppointment = () => {
@@ -82,17 +83,17 @@ const DoctorDetails = () => {
             From preventive care to complex treatments.
           </p>
         </div>
-        <div className="md:flex gap-5 bg-white rounded-2xl p-10">
+        <div className="md:flex md:space-y-0 space-y-5 gap-5 bg-white rounded-2xl p-10">
           <div>
-            <img className="w-80 rounded-2xl" src={doctor_image} alt="" />
+            <img className="w-80 rounded-2xl" src={doctor_image} alt="doctor-image" />
           </div>
           <div className="space-y-2 flex-1/2">
             <h1 className="text-3xl font-semibold">{name}</h1>
             <p className="md:text-xl font-semibold text-[#0F0F0F99]">
-              {education}
+              {education}, <span>{speciality}</span>
             </p>
             <p className="md:text-xl font-semibold text-[#0F0F0F99]">
-              {speciality}
+              {designation}
             </p>
             <br />
             <p>
@@ -105,9 +106,9 @@ const DoctorDetails = () => {
               </span>
             </p>
             <hr className="border-dashed border border-[#0F0F0F99] my-4 w-full" />
-            <div className="md:text-xl flex gap-2 font-medium  text-[#0F0F0F99]">
+            <div className="md:text-xl flex gap-2 font-semibold  text-[#0F0F0F99]">
               <span className="flex items-center">
-                <PiTrademarkRegisteredBold size={20} /> Reg No:
+                <PiTrademarkRegisteredBold size={25} /> Reg No:
                 <hr />
               </span>
               <span>{registration_number}</span>

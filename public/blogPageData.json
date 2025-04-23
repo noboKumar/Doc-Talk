@@ -7,12 +7,12 @@
     {
       "id": 2,
       "question": "What is the purpose of `useEffect` in React?",
-      "answer": "useEffect is a React hook used to handle side effects in a component. It runs after the component renders and can re-run based on dependencies specified in its dependency array."
+      "answer": "useEffect is a React hook used to handle side effects in a component. It runs after the component renders and can re-run based on its dependency array."
     },
     {
       "id": 3,
       "question": "What is a custom hook in React and when should you use one?",
-      "answer": "A custom hook is a JavaScript function that starts with 'use' and allows you to extract and reuse logic that uses React hooks like useState or useEffect. You should use one when you want to reuse logic across multiple components, such as fetching data, tracking user online status, or managing chat room connections."
+      "answer": "A custom hook is a JavaScript function that starts with 'use' and allows us to reuse logic that uses React hooks like useState or useEffect. We should use custom Hook when we want to reuse logic in multiple components, like fetching data, tracking user online status, or managing chat room connections."
     },
     {
       "id": 4,
@@ -22,7 +22,7 @@
     {
       "id": 5,
       "question": "Tell us something about `useFormStatus()`",
-      "answer": "`useFormStatus()` is a React hook (used in frameworks like React Server Components or Next.js) that provides status information about the last form submission. It helps track if the form is submitting, succeeded, or failed, which is useful for showing loading states or submission feedback."
+      "answer": "`useFormStatus()` is a React hook that provides us status information about the last form submission. It helps track if the form is submitting, succeeded, or failed, which is useful for showing loading states or submission feedback."
     }
   ]
   
