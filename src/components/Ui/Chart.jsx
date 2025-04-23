@@ -3,6 +3,7 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
+  Cell,
   Line,
   LineChart,
   ResponsiveContainer,
@@ -28,13 +29,12 @@ const Chart = ({ displayBookings }) => {
     }, ${y + height}
    Z`;
 
+  const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "green"];
+
   return (
     <div className="py-8 w-full max-w-[1200px] mx-auto h-[300px] md:h-[500px]">
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart
-          className="mx-auto"
-          data={displayBookings}
-        >
+        <BarChart className="mx-auto" data={displayBookings}>
           <XAxis dataKey="name" />
           <YAxis />
           <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
@@ -44,7 +44,12 @@ const Chart = ({ displayBookings }) => {
             type="monotone"
             stroke="#181B5C"
             shape={<TriangleBar />}
-          />
+          >
+            {colors.map((entry, index) => (
+              <Cell key={index} fill={colors[index % 20]}></Cell>
+            ))}
+          </Bar>
+
           <Tooltip
             contentStyle={{
               backgroundColor: "rgba(0, 0, 0, 0.70)",
