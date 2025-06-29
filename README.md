@@ -1,5 +1,7 @@
 # Doc Talk 🩺
 
+🔗 **Live Site URL**: [https://doc-talk-nk.netlify.app/](https://doc-talk-nk.netlify.app/)
+
 A modern web application to browse and book appointments with doctors. Doc Talk offers seamless doctor listing, real-time availability, easy booking management, and visual stats for your appointments.
 
 ## 📖 Description
